@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import UserItem from "./UserItem";
 import PropTypes from "prop-types";
 import Spinner from "../layout/Spinner";
+import GithubContext from "../../context/github/GithubContext";
 
-const Users = ({ loading, users }) => {
+const Users = () => {
+  const githubContext = useContext(GithubContext);
+  const { loading, users } = githubContext;
   const result = loading ? (
     <Spinner />
   ) : (
